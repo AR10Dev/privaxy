@@ -1,11 +1,6 @@
-name: CI
+name: Release
 on: 
-  pull_request:
-    branches:
-      - main
-  push:
-    branches:
-      - main
+  workflow_dispatch:
 
 env:
   CARGO_TERM_COLOR: always
@@ -15,7 +10,7 @@ jobs:
     name: Run clippy check
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v3
 
       - uses: actions-rs/toolchain@v1
@@ -67,8 +62,8 @@ jobs:
     name: Check style
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v1
 
       - name: Install rust
         uses: actions-rs/toolchain@v1
@@ -249,11 +244,17 @@ jobs:
       - name: Build web frontend
         run: trunk build --release
         working-directory: ./web_frontend
-
-      - name: Build desktop app
+   
+      - name: Build 🔧
         id: desktop_app
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          # the action automatically replaces __VERSION__ with the app version
+          tagName: v__VERSION__
+          releaseName: 'v__VERSION__'
+          releaseDraft: true
+          prerelease: false
+          tauriScript: 'pnpm'
           args: ${{ startsWith(matrix.os, 'macos') == true && '--target universal-apple-darwin' || '' }}
