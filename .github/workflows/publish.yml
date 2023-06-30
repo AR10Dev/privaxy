@@ -13,7 +13,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - uses: actions-rs/toolchain@v1
+      - name: Install Mold linker
+        uses: rui314/setup-mold@v1
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
         with:
           toolchain: nightly
           components: clippy
@@ -64,9 +68,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v3
 
-      - name: Install rust
+      - name: Install Mold linker
+        uses: rui314/setup-mold@v1
+
+      - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -124,7 +131,10 @@ jobs:
           key: no_gui-${{ runner.os }}-${{ matrix.target }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
 
-      - name: Install rust
+      - name: Install Mold linker
+        uses: rui314/setup-mold@v1
+
+      - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
           toolchain: ${{ matrix.rust }}
@@ -191,7 +201,10 @@ jobs:
           key: gui-${{ runner.os }}-${{ matrix.target }}-cargo-${{ hashFiles('**/Cargo.lock') }}
           restore-keys: ${{ runner.os }}-cargo-
 
-      - name: Install rust
+      - name: Install Mold linker
+        uses: rui314/setup-mold@v1
+
+      - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
           toolchain: ${{ matrix.rust }}
