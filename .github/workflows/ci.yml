@@ -217,7 +217,7 @@ jobs:
 
       - name: Build desktop app
         id: desktop_app
-        uses: tauri-apps/tauri-action@5a6072a9edbbf71718caee364b5b96731d7580fc #v0 does not handle universal builds
+        uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENABLE_CODE_SIGNING: ${{ secrets.APPLE_CERTIFICATE }}

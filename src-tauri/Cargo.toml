@@ -2,12 +2,14 @@
 name = "privaxy_app"
 version = "0.1.0"
 description = "A Tauri App"
-authors = ["you"]
-license = ""
-repository = ""
 default-run = "privaxy_app"
-edition = "2021"
-rust-version = "1.59"
+authors = { workspace = true }
+homepage = { workspace = true }
+repository = { workspace = true }
+categories = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+rust-version = { workspace = true }
 
 [build-dependencies]
 tauri-build = { version = "1.4.0", features = [] }

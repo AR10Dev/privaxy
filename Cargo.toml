@@ -1,8 +1,19 @@
 [workspace]
 members = ["web_frontend", "privaxy", "src-tauri"]
 
+[workspace.package]
+authors = [ "Tauri Programme within The Commons Conservancy" ]
+homepage = ""
+repository = "https://github.com/AR10Dev/privaxy"
+categories = [ "adblock" ]
+license = "GNU AFFERO GENERAL PUBLIC"
+edition = "2021"
+rust-version = "1.65"
+
+# default to small, optimized workspace release binaries
 [profile.release]
-lto = true
-panic = 'abort'
+panic = "abort"
 codegen-units = 1
-opt-level = 's'
+lto = true
+incremental = false
+opt-level = "s"

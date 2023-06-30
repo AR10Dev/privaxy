@@ -1,12 +1,18 @@
 [package]
 name = "web_frontend"
 version = "0.1.0"
-edition = "2021"
+authors = { workspace = true }
+homepage = { workspace = true }
+repository = { workspace = true }
+categories = { workspace = true }
+license = { workspace = true }
+edition = { workspace = true }
+rust-version = { workspace = true }
 
 
 [dependencies]
 yew = "0.20.0"
-yew-router = "0.17.0"
+yew-router = "0.16.0"
 serde_json = "1.0.99"
 tauri-sys = { git = "https://github.com/JonasKruckenberg/tauri-sys", rev = "0c864ee8c2b7d2eb44add60ca7973c9f2454f899", features = [
   "dialog",
