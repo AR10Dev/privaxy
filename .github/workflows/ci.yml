@@ -267,11 +267,6 @@ jobs:
       - name: Install node packages
         working-directory: ./web_frontend
         run: pnpm i
-      # It is required to first build the frontend as the server won't
-      # build if it has no access to frontend's dist directory.
-      - name: Build web frontend
-        run: trunk build --release
-        working-directory: ./web_frontend
 
       - name: Build desktop app
         id: desktop_app
@@ -279,4 +274,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tauriScript: 'pnpm'
           args: ${{ startsWith(matrix.os, 'macos') == true && '--target universal-apple-darwin' || '' }}
