@@ -20,8 +20,6 @@ jobs:
 
       - name: Install Mold linker
         uses: rui314/setup-mold@v1
-        with:
-          make-default: false
 
       - name: Install Rust
         uses: actions-rs/toolchain@v1
@@ -78,8 +76,6 @@ jobs:
 
       - name: Install Mold linker
         uses: rui314/setup-mold@v1
-        with:
-          make-default: false
 
       - name: Install rust
         uses: actions-rs/toolchain@v1
@@ -133,8 +129,6 @@ jobs:
 
       - name: Install Mold linker
         uses: rui314/setup-mold@v1
-        with:
-          make-default: false
 
       - name: Install Rust
         uses: actions-rs/toolchain@v1
@@ -201,8 +195,6 @@ jobs:
 
       - name: Install Mold linker
         uses: rui314/setup-mold@v1
-        with:
-          make-default: false
 
       - name: Install Rust
         uses: actions-rs/toolchain@v1
