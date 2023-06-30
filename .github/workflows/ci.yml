@@ -53,7 +53,6 @@ jobs:
         with:
           node-version: latest
           cache: 'pnpm'
-          cache-dependency-path: web_frontend/pnpm-lock.yaml
 
       - name: Install node packages
         working-directory: ./web_frontend
@@ -232,7 +231,6 @@ jobs:
         with:
           node-version: latest
           cache: 'pnpm'
-          cache-dependency-path: web_frontend/pnpm-lock.yaml
 
       - if: startsWith(matrix.os, 'ubuntu') == true
         name: Install gui library packages
