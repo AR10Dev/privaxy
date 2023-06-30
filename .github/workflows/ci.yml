@@ -136,6 +136,7 @@ jobs:
           toolchain: ${{ matrix.rust }}
           profile: minimal
           override: true
+          target: ${{ matrix.target }}
 
       - name: Install rust target
         run: rustup target add ${{ matrix.target }}
@@ -169,12 +170,15 @@ jobs:
           - build: linux
             os: ubuntu-latest
             rust: stable
+            target: x86_64-unknown-linux-gnu
           - build: macos
             os: macos-latest
             rust: stable
+            target: x86_64-apple-darwin
           - build: windows
             os: windows-latest
             rust: stable
+            target: x86_64-pc-windows-msvc
     
     steps:
       - name: Checkout 🛎️
@@ -202,6 +206,11 @@ jobs:
           toolchain: ${{ matrix.rust }}
           profile: minimal
           override: true
+          target: ${{ matrix.target }}
+
+      - name: Install cross build dependencies
+        if: matrix.target == 'aarch64-unknown-linux-gnu'
+        run: sudo apt-get update && sudo apt-get install -y gcc-aarch64-linux-gnu libc6-dev-arm64-cross
 
       - name: Install trunk
         uses: actions-rs/cargo@v1
