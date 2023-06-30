@@ -229,10 +229,6 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.0-dev build-essential libayatana-appindicator3-dev librsvg2-dev libgtk-3-dev libsoup2.4-dev libjavascriptcoregtk-4.0-dev
 
       - if: startsWith(matrix.os, 'macos') == true
-        name: Install rust apple arm target
-        run: rustup target add aarch64-apple-darwin
-
-      - if: startsWith(matrix.os, 'macos') == true
         name: Install apple api key private key
         run: |
           mkdir -p ~/private_keys
