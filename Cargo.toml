@@ -15,6 +15,4 @@ panic = "abort"
 codegen-units = 1
 incremental = false
 opt-level = "s"
-
-[target.'cfg(target_arch="x86_64")'.profile.release]
 lto = true
