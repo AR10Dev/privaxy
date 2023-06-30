@@ -248,5 +248,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tagName: v__VERSION__
+          releaseName: 'v__VERSION__'
+          releaseDraft: true
+          prerelease: false
           tauriScript: 'pnpm tauri'
           args: ${{ startsWith(matrix.os, 'macos') == true && '--target universal-apple-darwin' || '' }}
