@@ -252,5 +252,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tauriScript: 'pnpm'
+          tauriScript: 'pnpm tauri'
           args: ${{ startsWith(matrix.os, 'macos') == true && '--target universal-apple-darwin' || '' }}
