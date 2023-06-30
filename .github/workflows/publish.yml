@@ -32,7 +32,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: install
-          args: --locked --debug trunk
+          args: --locked --debug --force trunk
 
       - name: Install webassembly rust target
         run: rustup target add wasm32-unknown-unknown
@@ -211,7 +211,7 @@ jobs:
         uses: rui314/setup-mold@v1
         with:
           make-default: false
-          
+
       - name: Install Rust
         uses: actions-rs/toolchain@v1
         with:
@@ -223,7 +223,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: install
-          args: --locked --debug trunk
+          args: --locked --debug --force trunk
 
       - name: Install webassembly rust target
         run: rustup target add wasm32-unknown-unknown
