@@ -1,3 +1,5 @@
+#![windows_subsystem = "windows"]
+
 use privaxy::start_privaxy;
 use std::time::Duration;
 

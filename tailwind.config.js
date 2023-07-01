@@ -4,7 +4,7 @@ module.exports = {
     },
 
     content: [
-        './src/**/*.rs',
+        './web_frontend/src/**/*.rs',
     ],
 
     plugins: [
